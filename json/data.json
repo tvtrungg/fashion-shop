@@ -1,0 +1,175 @@
+{
+  "products": [
+    {
+      "name": "Editor's Pick",
+      "image": "./assets/image/main-item-1.jpg"
+    },
+    {
+      "name": "Shoes",
+      "image": "./assets/image/main-item-2.jpg"
+    },
+    {
+      "name": "Accessories",
+      "image": "./assets/image/main-item-3.jpg"
+    }
+  ],
+  "menuItems": [
+    {
+      "name": "New in",
+      "link": "#",
+      "tag": ""
+    },
+    {
+      "name": "Trend",
+      "link": "#",
+      "tag": ""
+    },
+    {
+      "name": "Collections",
+      "link": "#",
+      "tag": "sale"
+    },
+    {
+      "name": "Lookbook",
+      "link": "#",
+      "tag": ""
+    },
+    {
+      "name": "Demos",
+      "link": "#",
+      "tag": ""
+    },
+    {
+      "name": "Shop instagram",
+      "link": "#",
+      "tag": "new"
+    },
+    {
+      "name": "Blog",
+      "link": "#",
+      "tag": "hot"
+    },
+    {
+      "name": "Brand",
+      "link": "#",
+      "tag": ""
+    },
+    {
+      "name": "Faqs",
+      "link": "#",
+      "tag": ""
+    }
+  ],
+  "categories": [
+    {
+      "imageSrc": "./assets/image/article-2-1.jpg",
+      "productName": "Naminos Dementus A Milance - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$86.00 - $99.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": ["#FF5733", "#FFC300", "#C70039"]
+    },
+    {
+      "imageSrc": "./assets/image/article-2-2.jpg",
+      "productName": "Dinterdum Pretium Condimento - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$139.00 - $189.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": [
+        "#FF5733",
+        "#FFC300",
+        "#C70039",
+        "#900C3F",
+        "#581845",
+        "0B5345"
+      ]
+    },
+    {
+      "imageSrc": "./assets/image/article-2-3.jpg",
+      "productName": "Magnis Darturien Metro Lacinis - Black",
+      "productStatus": "Solding",
+      "productPrice": "$86.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": ["#FF5733"]
+    },
+    {
+      "imageSrc": "./assets/image/article-2-4.jpg",
+      "productName": "Loremous Saliduar A Cosmopolito - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$86.00 - $99.00",
+      "sizes": ["M", "L", "XL", "X"],
+      "colors": ["#FF5733", "#FFC300", "#C70039"]
+    },
+    {
+      "imageSrc": "./assets/image/article-2-5.jpg",
+      "productName": "Naminos Dementus A Milance - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$86.00 - $99.00",
+      "sizes": ["M", "L", "XL"],
+      "colors": ["#FF5733", "#FFC300", "#C70039", "00FFFF", "7D3C98"]
+    },
+    {
+      "imageSrc": "./assets/image/article-2-6.jpg",
+      "productName": "Naminos Dementus A Milance - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$86.00 - $90.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": ["#FF5733", "#FFC300", "#C70039", "7D3C98"]
+    },
+    {
+      "imageSrc": "./assets/image/main-item-1.jpg",
+      "productName": "T-shirt with a print - White",
+      "productStatus": "Solding",
+      "productPrice": "$20.00 - $50.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": ["#FF5733", "#FFC300", "#C70039", "7D3C98"]
+    },
+    {
+      "imageSrc": "./assets/image/main-item-2.jpg",
+      "productName": "Baminos Dementus A Milance - Pattern",
+      "productStatus": "Solding",
+      "productPrice": "$46.00 - $60.00",
+      "sizes": ["XS", "S", "M", "L", "XL", "X"],
+      "colors": ["#FF5733", "#FFC300", "#C70039", "7D3C98"]
+    }
+  ],
+  "footerItems": {
+    "shop": {
+      "title": "Shop",
+      "items": [
+        "New in",
+        "Women",
+        "Men",
+        "Shoes",
+        "Bags & Accessories",
+        "Top Brands",
+        "Sale & Special Offers",
+        "Lookbook"
+      ]
+    },
+    "information": {
+      "title": "Information",
+      "items": [
+        "About",
+        "Customer Service",
+        "Reward Program",
+        "Shipping & Returns",
+        "Privacy Policy",
+        "Terms & Conditions",
+        "Blog"
+      ]
+    },
+    "customerService": {
+      "title": "CUSTOMER SERVICE",
+      "items": [
+        "Search Terms",
+        "Advanced Search",
+        "Orders and Returns",
+        "Contact Us",
+        "Theme FAQs",
+        "Consultant",
+        "Store Locations"
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@keyframes moveBanner {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-280%);
+  }
+}
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.5em);
+  }
+
+  to {
+    transform: translateY(-0.5em);
+  }
+}
+
+.collection-wrapper .content-wrapper .title::before,
+.navPages .navPages-list li a .text::before,
+.navUser-item.navUser-item-account a::before,
+#menu-mobile .navUser-item-account a::before,
+.navUser-item a .navUser-text::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background: var(--black);
+  visibility: visible;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.collection-wrapper .content-wrapper .title::before,
+.navPages .navPages-list li a .text::before {
+  background-color: var(--white);
+}
+
+#menu-mobile .navUser-item-account .navUser-action:hover::before,
+.collection-wrapper:hover .content-wrapper .title::before,
+.navPages .navPages-list li.active a .text::before,
+.navPages .navPages-list li:hover a .text::before,
+.header-top .navUser-action:hover::before,
+.navUser-item a.active .navUser-text::before,
+.navUser-item a:hover span::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.slide{
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.article-3 .slide::before,
+.collection-wrapper .image-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s ease-in-out 0s;
+}
+.article-3 .slide::before{
+  width: 99%;
+  height: 99%;
+}
+
+
+.article-3 .slide:hover::before,
+.collection-wrapper:hover .image-wrapper::before {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.article-3 .slide:hover img{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.banner-promotion .d-flex {
+  animation: moveBanner 15s linear infinite;
+}
