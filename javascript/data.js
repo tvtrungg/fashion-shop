@@ -84,6 +84,129 @@ document.addEventListener('DOMContentLoaded', () => {
     articleContainer.appendChild(articleItem);
   }
 
+
+  function CarouselFunction(autoplay) {
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const slidesContainer = document.querySelector('.slides');
+    const slides = document.querySelectorAll('.slide');
+    const slideWidth = slides[0].offsetWidth;
+    const slidesToShow = 5;
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    let autoplayInterval;
+
+    // Function to move to the previous slide
+    function prevSlide() {
+      if (currentIndex === 0) {
+        currentIndex = slides.length - slidesToShow;
+      } else {
+        currentIndex = Math.max(0, currentIndex - 1);
+      }
+      updateCarousel();
+    }
+
+    // Function to move to the next slide
+    function nextSlide() {
+      if (currentIndex === slides.length - slidesToShow) {
+        currentIndex = 0;
+      } else {
+        currentIndex = Math.min(slides.length - slidesToShow, currentIndex + 1);
+      }
+      updateCarousel();
+    }
+
+    // Function to update carousel position
+    function updateCarousel() {
+      slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    // Add click event listeners to prev and next buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Swipe to slide functionality
+    slidesContainer.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.clientX;
+    });
+
+    slidesContainer.addEventListener('mouseup', () => {
+      isDragging = false;
+      const endX = startX - e.clientX;
+      if (endX > 100) {
+        nextSlide();
+      } else if (endX < -100) {
+        prevSlide();
+      }
+    });
+
+    slidesContainer.addEventListener('mouseleave', () => {
+      isDragging = false;
+    });
+
+    slidesContainer.addEventListener('mousemove', e => {
+      if (isDragging) {
+        const currentPosition = e.clientX;
+        const distance = startX - currentPosition;
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth + distance}px)`;
+      }
+    });
+
+    // Prevent default behavior for mouse down event to avoid text selection
+    slidesContainer.addEventListener('mousedown', e => e.preventDefault());
+
+    // Swipe functionality for touch devices
+    slidesContainer.addEventListener('touchstart', e => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+    });
+
+    slidesContainer.addEventListener('touchend', e => {
+      isDragging = false;
+      const endX = startX - e.changedTouches[0].clientX;
+      if (endX > 100) {
+        nextSlide();
+      } else if (endX < -100) {
+        prevSlide();
+      }
+    });
+
+    slidesContainer.addEventListener('touchmove', e => {
+      if (isDragging) {
+        const currentPosition = e.touches[0].clientX;
+        const distance = startX - currentPosition;
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth + distance}px)`;
+      }
+    });
+
+    // Autoplay functionality
+    if (autoplay) {
+      autoplayInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    }
+
+    // Pause autoplay when mouse hovers over the carousel
+    slidesContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoplayInterval);
+    });
+
+    // Resume autoplay when mouse leaves the carousel
+    slidesContainer.addEventListener('mouseleave', () => {
+      if (autoplay) {
+        autoplayInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+      }
+    });
+  }
+
+
+  const carouselElements = document.querySelectorAll('.carousel-custom');
+
+  carouselElements.forEach(carouselElement => {
+    const autoplayValue = carouselElement.dataset.autoplay === 'true'; // Convert string to boolean
+    CarouselFunction(autoplayValue);
+  });
+
   function attachEventListeners() {
     const addCartBtns = document.querySelectorAll('.add-cart-btn');
     const cartBtns = document.querySelectorAll('.cart-btn');
@@ -96,12 +219,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTop = document.getElementById('back-to-top');
     const headerMobile = document.querySelector('.header-mobile');
     const exitIcon = document.querySelector('.exit-icon');
+    const navPagesItems = document.querySelectorAll('.navPages-item');
     const barIcon = document.querySelector('.bar-icon');
     const body = document.querySelector('body');
     const footerLists = document.querySelectorAll('.footer-list');
     const footerShop = document.getElementById('footer-section-shop')
     const footerInformation = document.getElementById('footer-section-information')
     const footerCustomerService = document.getElementById('footer-section-customerService')
+    const article1 = document.querySelector('#article-1');
+    const article2 = document.querySelector('#article-2');
+    const article3 = document.querySelector('#article-3');
+
+    function checkPosition() {
+      const sections = [
+        { element: article1, animationClass: 'animate__fadeInUp' },
+        { element: article2, animationClass: 'animate__fadeInLeft' },
+        { element: article3, animationClass: 'animate__flipInX' }
+      ];
+
+      const windowHeight = window.innerHeight;
+
+      sections.forEach(section => {
+        const positionFromTop = section.element.getBoundingClientRect().top;
+
+        if (positionFromTop - windowHeight <= 0) {
+          section.element.classList.add(section.animationClass);
+        }
+      });
+    }
+
+    checkPosition();
+    window.addEventListener('scroll', checkPosition);
+
 
     function toggleFooterList(footerList) {
       if (window.innerWidth < 572) {
@@ -177,5 +326,14 @@ document.addEventListener('DOMContentLoaded', () => {
       headerMobile.classList.add('animate__slideOutLeft');
       body.style.overflow = '';
     });
+
+    navPagesItems.forEach(navPagesItem => {
+      navPagesItem.addEventListener('click', () => {
+        headerMobile.classList.remove('animate__slideInLeft');
+        headerMobile.classList.add('animate__slideOutLeft');
+        body.style.overflow = '';
+      });
+    }
+    );
   }
 });
